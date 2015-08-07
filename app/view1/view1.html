@@ -1,0 +1,85 @@
+<div>
+    <h1>Search for providers</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form-inline" ng-submit="search()">
+                <div class="form-group">
+                    <label for="address">Location</label><br/>
+                    <input
+                        id="address"
+                        ng-model="searchRequest.address"
+                        type="text"
+                        class="form-control"
+                        style="width: 190px; height: 45px;"
+                        placeholder="Your address...">
+                </div>
+
+                <div class="form-group">
+                    <label for="providerType">Provider Type</label><br/>
+                    <select ng-model="searchRequest.serviceType" id="providerType">
+                        <option value="" selected="selected" disabled>Type of provider...</option>
+                        <option ng-repeat="type in providerTypes">{{type}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="radius">Distance</label><br/>
+                    <select ng-model="searchRequest.radius" id="radius">
+                        <option value="" selected="selected" disabled>Distance...</option>
+                        <option ng-repeat="d in distances">{{d}} Km</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="providerName">Provider Name</label><br/>
+                    <input
+                        id="providerName"
+                        ng-model="searchRequest.name"
+                        type="text"
+                        class="form-control"
+                        style="width: 190px; height: 45px;"
+                        placeholder="Provider name...">
+                </div>
+
+                <button type="submit" class="btn btn-info btn-lg" style="margin-top: 24px;">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+            <div id="searchResults">
+                <div>
+                    <p class="lead">
+                        Showing {{searchResults.length}} providers
+                    </p>
+                </div>
+                <div ng-repeat="provider in searchResults" class="provider-listing">
+
+                    <address>
+                        <strong>
+                            <a href="#">
+                                <span class="badge">{{provider.id}}</span>{{provider.name}}
+                            </a>
+                        </strong><br>
+                        {{provider.address.streetNumber}} {{provider.address.streetName}}<br/>
+                        {{provider.address.suburb}}, {{provider.address.state}} {{provder.address.postCode}}<br/>
+                        <abbr title="Phone">P:</abbr> {{provider.contactNumber}}
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                    <ui-gmap-markers models="searchResults" coords="'location'">
+                    </ui-gmap-markers>
+                </ui-gmap-google-map>
+            </div>
+            <div style="display: none;">
+                Address: {{searchRequest.address}}<br/>
+                Provider Type: {{searchRequest.providerType}}<br/>
+                Radius: {{searchRequest.radius}}</br>
+                Provider Name: {{searchRequest.providerName}}
+            </div>
+        </div>
+    </div>
+</div>

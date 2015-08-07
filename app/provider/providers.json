@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "coords": {
+      "latitude": -37.8921876,
+      "longitude": 145.1706992
+    },
+    "name": "Gyms Mowing",
+    "contactNumber": "223 32232 232",
+    "serviceType": "Home Service",
+    "address": {
+      "streetNumber": "13 A",
+      "streetName": "Lee avenue",
+      "suburb": "MW",
+      "state": "Vic",
+      "postCode": 3149,
+      "geoLocation": {
+        "latitude": -37.8921876,
+        "longitude": 145.1706992
+      }
+    }
+  },
+  {
+    "id": 2,
+    "coords": {
+      "latitude": -37.8552869,
+      "longitude": 145.1513801
+    },
+    "name": "Luxury Hotel",
+    "contactNumber": "03 9999 8888",
+    "serviceType": "Accommodation",
+    "address": {
+      "streetNumber": "111",
+      "streetName": "Exhibitions Street",
+      "suburb": "Melbourne",
+      "state": "VIC",
+      "postCode": 3151,
+      "geoLocation": {
+        "latitude": -37.8552869,
+        "longitude": 145.1513801
+      }
+    }
+  }
+]
